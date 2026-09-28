@@ -1,5 +1,5 @@
-﻿using Marketplace.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Marketplace.Domain.Entities;
 
 namespace Marketplace.Infrastructure.Data;
 
@@ -10,13 +10,16 @@ public class MarketplaceDbContext : DbContext
     {
     }
 
-    public DbSet<User> Users => Set<User>();
+    public DbSet<Listing> Listings { get; set; }
+    public DbSet<Category> Categories { get; set; }
 
-    public DbSet<Category> Categories => Set<Category>();
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
 
-    public DbSet<Listing> Listings => Set<Listing>();
-
-    public DbSet<Favorite> Favorites => Set<Favorite>();
-
-    public DbSet<Message> Messages => Set<Message>();
+        modelBuilder.Entity<Category>()
+            .HasMany(c => c.Listings)
+            .WithOne(l => l.Category)
+            .HasForeignKey(l => l.CategoryId);
+    }
 }
