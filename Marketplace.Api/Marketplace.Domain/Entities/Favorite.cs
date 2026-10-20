@@ -11,4 +11,6 @@ public class Favorite
     public int ListingId { get; set; }
 
     public Listing? Listing { get; set; }
+
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }
