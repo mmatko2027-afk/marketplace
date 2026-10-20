@@ -1,7 +1,8 @@
-﻿
-using Marketplace.Application.DTOs;
-using Marketplace.Application.Services;
+﻿using Marketplace.Application.DTOs;
+using Marketplace.Domain.Entities;
+using Marketplace.Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Marketplace.Api.Controllers;
 
@@ -9,89 +10,87 @@ namespace Marketplace.Api.Controllers;
 [Route("api/categories")]
 public class CategoriesController : ControllerBase
 {
-    private readonly CategoryService _service;
+    private readonly MarketplaceDbContext _context;
 
-    public CategoriesController(CategoryService service)
+    public CategoriesController(MarketplaceDbContext context)
     {
-        _service = service;
+        _context = context;
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
     {
-        var categories = await _service.GetAllAsync();
+        var categories = await _context.Categories
+            .Include(c => c.Listings)
+            .ToListAsync();
 
-        return Ok(categories.Select(c => new CategoryDto
-        {
-            Id = c.Id,
-            Name = c.Name,
-            ListingsCount = c.Listings.Count
-        }));
+        return Ok(categories);
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<ActionResult<Category>> GetCategory(int id)
     {
-        var category = await _service.GetByIdAsync(id);
+        var category = await _context.Categories
+            .Include(c => c.Listings)
+            .FirstOrDefaultAsync(c => c.Id == id);
 
         if (category == null)
         {
             return NotFound();
         }
 
-        return Ok(new CategoryDto
-        {
-            Id = category.Id,
-            Name = category.Name,
-            ListingsCount = category.Listings.Count
-        });
+        return Ok(category);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(CreateCategoryDto dto)
+    public async Task<ActionResult<Category>> CreateCategory(CreateCategoryDto dto)
     {
-        var category = new Marketplace.Domain.Entities.Category
+        var category = new Category
         {
             Name = dto.Name
         };
 
-        await _service.AddAsync(category);
+        _context.Categories.Add(category);
+
+        await _context.SaveChangesAsync();
 
         return CreatedAtAction(
-            nameof(GetById),
+            nameof(GetCategory),
             new { id = category.Id },
-            new CategoryDto
-            {
-                Id = category.Id,
-                Name = category.Name,
-                ListingsCount = 0
-            });
+            category);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(
+    public async Task<IActionResult> UpdateCategory(
         int id,
         CreateCategoryDto dto)
     {
-        var updated = await _service.UpdateAsync(id, dto.Name);
+        var category = await _context.Categories.FindAsync(id);
 
-        if (!updated)
+        if (category == null)
         {
             return NotFound();
         }
+
+        category.Name = dto.Name;
+
+        await _context.SaveChangesAsync();
 
         return NoContent();
     }
-
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> DeleteCategory(int id)
     {
-        var deleted = await _service.DeleteAsync(id);
+        var category = await _context.Categories.FindAsync(id);
 
-        if (!deleted)
+        if (category == null)
         {
             return NotFound();
         }
+
+        _context.Categories.Remove(category);
+
+        await _context.SaveChangesAsync();
 
         return NoContent();
     }

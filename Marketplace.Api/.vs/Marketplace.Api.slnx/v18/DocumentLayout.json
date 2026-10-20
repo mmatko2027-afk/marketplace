@@ -1,0 +1,488 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Data\\MarketplaceDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Infrastructure\\Data\\MarketplaceDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Domain\\Entities\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\ListingsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Api\\Controllers\\ListingsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\ListingDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Application\\DTOs\\ListingDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\CreateListingDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Application\\DTOs\\CreateListingDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Listing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Domain\\Entities\\Listing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\CreateCategoryDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Application\\DTOs\\CreateCategoryDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Repositories\\ListingRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Infrastructure\\Repositories\\ListingRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Services\\ListingService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Application\\Services\\ListingService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\CategoriesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Api\\Controllers\\CategoriesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Marketplace.Infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Infrastructure\\Marketplace.Infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Repositories\\CategoryRepository.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Infrastructure\\Repositories\\CategoryRepository.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Marketplace.Domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Domain\\Marketplace.Domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Domain\\Entities\\Message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Domain\\Entities\\Favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Domain\\Entities\\Category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Services\\CategoryService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Application\\Services\\CategoryService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Repositories\\IListingRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Application\\Repositories\\IListingRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Repositories\\ICategoryRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Application\\Repositories\\ICategoryRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\CategoryDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Application\\DTOs\\CategoryDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\MessagesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Api\\Controllers\\MessagesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\FavoritesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Api\\Controllers\\FavoritesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\UsersController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Api\\Controllers\\UsersController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Marketplace.Api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Marketplace.Api\\Marketplace.Api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Properties\\launchSettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Listing.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Listing.cs",
+              "RelativeDocumentMoniker": "Marketplace.Domain\\Entities\\Listing.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Listing.cs",
+              "RelativeToolTip": "Marketplace.Domain\\Entities\\Listing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:41:11.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ListingDto.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\ListingDto.cs",
+              "RelativeDocumentMoniker": "Marketplace.Application\\DTOs\\ListingDto.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\ListingDto.cs",
+              "RelativeToolTip": "Marketplace.Application\\DTOs\\ListingDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:01:51.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateListingDto.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\CreateListingDto.cs",
+              "RelativeDocumentMoniker": "Marketplace.Application\\DTOs\\CreateListingDto.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\CreateListingDto.cs",
+              "RelativeToolTip": "Marketplace.Application\\DTOs\\CreateListingDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:02:04.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ListingsController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\ListingsController.cs",
+              "RelativeDocumentMoniker": "Marketplace.Api\\Controllers\\ListingsController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\ListingsController.cs",
+              "RelativeToolTip": "Marketplace.Api\\Controllers\\ListingsController.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAUwLUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:00:22.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateCategoryDto.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\CreateCategoryDto.cs",
+              "RelativeDocumentMoniker": "Marketplace.Application\\DTOs\\CreateCategoryDto.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\CreateCategoryDto.cs",
+              "RelativeToolTip": "Marketplace.Application\\DTOs\\CreateCategoryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:38:46.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Marketplace.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Program.cs",
+              "RelativeToolTip": "Marketplace.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T17:49:36.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Marketplace.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "Marketplace.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:40:48.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MarketplaceDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Data\\MarketplaceDbContext.cs",
+              "RelativeDocumentMoniker": "Marketplace.Infrastructure\\Data\\MarketplaceDbContext.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Data\\MarketplaceDbContext.cs",
+              "RelativeToolTip": "Marketplace.Infrastructure\\Data\\MarketplaceDbContext.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAUwEwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:42:39.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "Marketplace.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\appsettings.json",
+              "RelativeToolTip": "Marketplace.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-20T08:18:24.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ListingService.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Services\\ListingService.cs",
+              "RelativeDocumentMoniker": "Marketplace.Application\\Services\\ListingService.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Services\\ListingService.cs",
+              "RelativeToolTip": "Marketplace.Application\\Services\\ListingService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAiwDEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T17:58:39.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ListingRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Repositories\\ListingRepository.cs",
+              "RelativeDocumentMoniker": "Marketplace.Infrastructure\\Repositories\\ListingRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Repositories\\ListingRepository.cs",
+              "RelativeToolTip": "Marketplace.Infrastructure\\Repositories\\ListingRepository.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAiwIoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T17:59:38.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "Marketplace.Api\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "Marketplace.Api\\Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAAE4AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T17:49:26.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Marketplace.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Marketplace.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "Marketplace.Infrastructure\\Marketplace.Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Marketplace.Infrastructure.csproj",
+              "RelativeToolTip": "Marketplace.Infrastructure\\Marketplace.Infrastructure.csproj",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-19T18:43:15.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Repositories\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "Marketplace.Infrastructure\\Repositories\\CategoryRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Infrastructure\\Repositories\\CategoryRepository.cs",
+              "RelativeToolTip": "Marketplace.Infrastructure\\Repositories\\CategoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:17:27.626Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Marketplace.Domain.csproj",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Marketplace.Domain.csproj",
+              "RelativeDocumentMoniker": "Marketplace.Domain\\Marketplace.Domain.csproj",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Marketplace.Domain.csproj",
+              "RelativeToolTip": "Marketplace.Domain\\Marketplace.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-19T18:41:51.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Message.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Message.cs",
+              "RelativeDocumentMoniker": "Marketplace.Domain\\Entities\\Message.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Message.cs",
+              "RelativeToolTip": "Marketplace.Domain\\Entities\\Message.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:41:31.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Favorite.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Favorite.cs",
+              "RelativeDocumentMoniker": "Marketplace.Domain\\Entities\\Favorite.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Favorite.cs",
+              "RelativeToolTip": "Marketplace.Domain\\Entities\\Favorite.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:41:21.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Category.cs",
+              "RelativeDocumentMoniker": "Marketplace.Domain\\Entities\\Category.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Domain\\Entities\\Category.cs",
+              "RelativeToolTip": "Marketplace.Domain\\Entities\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:41:01.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ICategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Repositories\\ICategoryRepository.cs",
+              "RelativeDocumentMoniker": "Marketplace.Application\\Repositories\\ICategoryRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Repositories\\ICategoryRepository.cs",
+              "RelativeToolTip": "Marketplace.Application\\Repositories\\ICategoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:16:48.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IListingRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Repositories\\IListingRepository.cs",
+              "RelativeDocumentMoniker": "Marketplace.Application\\Repositories\\IListingRepository.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Repositories\\IListingRepository.cs",
+              "RelativeToolTip": "Marketplace.Application\\Repositories\\IListingRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T17:59:07.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CategoryService.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Services\\CategoryService.cs",
+              "RelativeDocumentMoniker": "Marketplace.Application\\Services\\CategoryService.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\Services\\CategoryService.cs",
+              "RelativeToolTip": "Marketplace.Application\\Services\\CategoryService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:18:21.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CategoryDto.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\CategoryDto.cs",
+              "RelativeDocumentMoniker": "Marketplace.Application\\DTOs\\CategoryDto.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Application\\DTOs\\CategoryDto.cs",
+              "RelativeToolTip": "Marketplace.Application\\DTOs\\CategoryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:24:45.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "MessagesController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\MessagesController.cs",
+              "RelativeDocumentMoniker": "Marketplace.Api\\Controllers\\MessagesController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\MessagesController.cs",
+              "RelativeToolTip": "Marketplace.Api\\Controllers\\MessagesController.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAIwCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:37:16.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "FavoritesController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\FavoritesController.cs",
+              "RelativeDocumentMoniker": "Marketplace.Api\\Controllers\\FavoritesController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\FavoritesController.cs",
+              "RelativeToolTip": "Marketplace.Api\\Controllers\\FavoritesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:36:40.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Marketplace.Api\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Marketplace.Api\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T18:36:19.439Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Marketplace.Api.csproj",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Marketplace.Api.csproj",
+              "RelativeDocumentMoniker": "Marketplace.Api\\Marketplace.Api.csproj",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Marketplace.Api\\Marketplace.Api.csproj",
+              "RelativeToolTip": "Marketplace.Api\\Marketplace.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-19T18:32:09.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAkwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-10-19T17:44:18.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Lenovo\\Documents\\marketplace\\Marketplace.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-19T17:49:10.26Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

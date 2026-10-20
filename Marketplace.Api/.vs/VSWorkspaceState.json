@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Marketplace.Api",
+    "\\Marketplace.Api\\Controllers",
+    "\\Marketplace.Api\\obj\\Debug\\net10.0",
+    "\\Marketplace.Application\\DTOs",
+    "\\Marketplace.Application\\Repositories",
+    "\\Marketplace.Application\\Services",
+    "\\Marketplace.Domain\\Entities",
+    "\\Marketplace.Infrastructure\\Data",
+    "\\Marketplace.Infrastructure\\Repositories"
+  ],
+  "SelectedNode": "\\Marketplace.Api\\Program.cs",
+  "PreviewInSolutionExplorer": false
+}
