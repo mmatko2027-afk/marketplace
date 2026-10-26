@@ -1,12 +1,10 @@
-﻿using System.Reflection;
-
-namespace Marketplace.Domain.Entities;
+﻿namespace Marketplace.Domain.Entities;
 
 public class Category
 {
     public int Id { get; set; }
 
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; set; } = "";
 
     public List<Listing> Listings { get; set; } = new();
 }

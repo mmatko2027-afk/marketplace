@@ -155,4 +155,3 @@ C:\Users\Lenovo\Documents\marketplace\Marketplace.Api\Marketplace.Api\obj\Debug\
 C:\Users\Lenovo\Documents\marketplace\Marketplace.Api\Marketplace.Api\obj\Debug\net10.0\Marketplace.Api.pdb
 C:\Users\Lenovo\Documents\marketplace\Marketplace.Api\Marketplace.Api\obj\Debug\net10.0\Marketplace.Api.genruntimeconfig.cache
 C:\Users\Lenovo\Documents\marketplace\Marketplace.Api\Marketplace.Api\obj\Debug\net10.0\ref\Marketplace.Api.dll
-C:\Users\Lenovo\Documents\marketplace\Marketplace.Api\Marketplace.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

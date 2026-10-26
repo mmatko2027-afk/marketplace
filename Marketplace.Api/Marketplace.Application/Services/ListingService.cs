@@ -12,18 +12,39 @@ public class ListingService
         _repository = repository;
     }
 
-    public async Task<List<Listing>> GetAllAsync()
+    public Task<List<Listing>> GetAllAsync(
+        int page,
+        int pageSize,
+        string? search,
+        int? categoryId,
+        string? sort)
     {
-        return await _repository.GetAllAsync();
+        return _repository.GetAllAsync(
+            page, pageSize, search, categoryId, sort);
     }
 
-    public async Task<Listing?> GetByIdAsync(int id)
+    public Task<Listing?> GetByIdAsync(int id)
     {
-        return await _repository.GetByIdAsync(id);
+        return _repository.GetByIdAsync(id);
     }
 
-    public async Task AddAsync(Listing listing)
+    public Task<bool> CreateAsync(Listing listing)
     {
-        await _repository.AddAsync(listing);
+        return _repository.AddAsync(listing);
+    }
+
+    public Task<bool> UpdateAsync(int id, Listing listing)
+    {
+        return _repository.UpdateAsync(id, listing);
+    }
+
+    public Task<bool> DeleteAsync(int id)
+    {
+        return _repository.DeleteAsync(id);
+    }
+
+    public Task<bool> CategoryExistsAsync(int categoryId)
+    {
+        return _repository.CategoryExistsAsync(categoryId);
     }
 }
