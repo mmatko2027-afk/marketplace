@@ -1,4 +1,5 @@
-﻿namespace Marketplace.Domain.Entities;
+﻿
+namespace Marketplace.Domain.Entities;
 
 public class User
 {
@@ -9,6 +10,8 @@ public class User
     public string Email { get; set; } = "";
 
     public string PasswordHash { get; set; } = "";
+
+    public string Role { get; set; } = "Buyer";
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Marketplace.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b50c6098a8acb40103db9dcaf730d43b8fc5323")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+317cc3b3b5197a8287277e8a964df555f65a03cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Marketplace.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Marketplace.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

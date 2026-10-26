@@ -13,7 +13,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddProblemDetails();
-
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IFavoritesRepository, FavoritesRepository>();
+builder.Services.AddScoped<FavoriteService>();
+builder.Services.AddScoped<IMessagesRepository, MessagesRepository>();
+builder.Services.AddScoped<MessageService>();
 var databasePath = Path.Combine(
     builder.Environment.ContentRootPath,
     "marketplace.db");
