@@ -1,4 +1,5 @@
-﻿using Marketplace.Application.Repositories;
+﻿using Marketplace.Application.DTOs;
+using Marketplace.Application.Repositories;
 using Marketplace.Domain.Entities;
 
 namespace Marketplace.Application.Services;
@@ -12,15 +13,20 @@ public class ListingService
         _repository = repository;
     }
 
-    public Task<List<Listing>> GetAllAsync(
+    public Task<PagedResultDto<Listing>> GetAllAsync(
         int page,
         int pageSize,
         string? search,
         int? categoryId,
+        int? brandId,
+        int? productConditionId,
+        decimal? minPrice,
+        decimal? maxPrice,
         string? sort)
     {
         return _repository.GetAllAsync(
-            page, pageSize, search, categoryId, sort);
+            page, pageSize, search, categoryId, brandId,
+            productConditionId, minPrice, maxPrice, sort);
     }
 
     public Task<Listing?> GetByIdAsync(int id)
@@ -46,5 +52,15 @@ public class ListingService
     public Task<bool> CategoryExistsAsync(int categoryId)
     {
         return _repository.CategoryExistsAsync(categoryId);
+    }
+
+    public Task<bool> BrandExistsAsync(int brandId)
+    {
+        return _repository.BrandExistsAsync(brandId);
+    }
+
+    public Task<bool> ProductConditionExistsAsync(int productConditionId)
+    {
+        return _repository.ProductConditionExistsAsync(productConditionId);
     }
 }

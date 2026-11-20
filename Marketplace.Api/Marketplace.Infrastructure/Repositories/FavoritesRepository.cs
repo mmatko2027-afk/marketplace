@@ -24,6 +24,13 @@ public class FavoritesRepository : IFavoritesRepository
             .ToListAsync();
     }
 
+    public Task<Favorite?> GetByIdAsync(int id)
+    {
+        return _context.Favorites
+            .AsNoTracking()
+            .FirstOrDefaultAsync(f => f.Id == id);
+    }
+
     public async Task<bool> AddAsync(int userId, int listingId)
     {
         var userExists = await _context.Users

@@ -13,6 +13,11 @@ public class FavoriteService
         _repository = repository;
     }
 
+    public Task<Favorite?> GetByIdAsync(int id)
+    {
+        return _repository.GetByIdAsync(id);
+    }
+
     public async Task<List<Favorite>> GetByUserAsync(int userId)
     {
         return await _repository.GetByUserAsync(userId);

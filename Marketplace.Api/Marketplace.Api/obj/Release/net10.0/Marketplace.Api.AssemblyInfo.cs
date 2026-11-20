@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("80fe2eb3-0e22-4400-bda8-0f8cf63c8b62")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Marketplace.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+317cc3b3b5197a8287277e8a964df555f65a03cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b02b9cc5c813b72ab7cd6476f6f45720f59edfd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Marketplace.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Marketplace.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

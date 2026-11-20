@@ -14,6 +14,12 @@ public class MessageService
         _repository = repository;
     }
 
+    public Task<Message?> GetByIdAsync(int id) => _repository.GetByIdAsync(id);
+
+    public Task<bool> UpdateAsync(int id, string text) => _repository.UpdateAsync(id, text);
+
+    public Task<bool> DeleteAsync(int id) => _repository.DeleteAsync(id);
+
     public async Task<List<Message>> GetByUserAsync(int userId)
     {
         return await _repository.GetByUserAsync(userId);

@@ -34,4 +34,14 @@ public class UserService
 
         return await _repository.CreateAsync(user);
     }
+
+    public Task<bool> UpdateAsync(int id, string name, string email, string role)
+    {
+        return _repository.UpdateAsync(id, name, email, role);
+    }
+
+    public Task<bool> DeleteAsync(int id)
+    {
+        return _repository.DeleteAsync(id);
+    }
 }

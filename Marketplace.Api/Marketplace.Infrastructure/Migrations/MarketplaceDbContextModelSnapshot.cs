@@ -17,6 +17,24 @@ namespace Marketplace.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.12");
 
+            modelBuilder.Entity("Marketplace.Domain.Entities.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Brands");
+                });
+
             modelBuilder.Entity("Marketplace.Domain.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -63,19 +81,40 @@ namespace Marketplace.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("BrandId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Defects")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PackageContents")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
                         .HasPrecision(12, 2)
                         .HasColumnType("TEXT");
+
+                    b.Property<int?>("ProductConditionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("ProductionYear")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("SellerId")
                         .HasColumnType("INTEGER");
@@ -88,13 +127,70 @@ namespace Marketplace.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Warranty")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("ProductConditionId");
+
                     b.HasIndex("SellerId");
 
+                    b.HasIndex("Status", "CreatedAt");
+
                     b.ToTable("Listings");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.ListingImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ListingId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ListingId");
+
+                    b.ToTable("ListingImages");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.ListingSpecification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ListingId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ListingId", "Name");
+
+                    b.ToTable("ListingSpecifications");
                 });
 
             modelBuilder.Entity("Marketplace.Domain.Entities.Message", b =>
@@ -128,6 +224,117 @@ namespace Marketplace.Infrastructure.Migrations
                     b.HasIndex("SenderId");
 
                     b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BuyerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasPrecision(12, 2)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BuyerId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ListingId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("TitleSnapshot")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasPrecision(12, 2)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ListingId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItems");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.ProductCondition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("ProductConditions");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BuyerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ListingId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BuyerId");
+
+                    b.HasIndex("ListingId");
+
+                    b.HasIndex("OrderId", "ListingId")
+                        .IsUnique();
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("Marketplace.Domain.Entities.User", b =>
@@ -184,11 +391,21 @@ namespace Marketplace.Infrastructure.Migrations
 
             modelBuilder.Entity("Marketplace.Domain.Entities.Listing", b =>
                 {
+                    b.HasOne("Marketplace.Domain.Entities.Brand", "Brand")
+                        .WithMany("Listings")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("Marketplace.Domain.Entities.Category", "Category")
                         .WithMany("Listings")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("Marketplace.Domain.Entities.ProductCondition", "ProductCondition")
+                        .WithMany("Listings")
+                        .HasForeignKey("ProductConditionId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Marketplace.Domain.Entities.User", "Seller")
                         .WithMany("Listings")
@@ -196,9 +413,35 @@ namespace Marketplace.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.Navigation("Brand");
+
                     b.Navigation("Category");
 
+                    b.Navigation("ProductCondition");
+
                     b.Navigation("Seller");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.ListingImage", b =>
+                {
+                    b.HasOne("Marketplace.Domain.Entities.Listing", "Listing")
+                        .WithMany("Images")
+                        .HasForeignKey("ListingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Listing");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.ListingSpecification", b =>
+                {
+                    b.HasOne("Marketplace.Domain.Entities.Listing", "Listing")
+                        .WithMany("Specifications")
+                        .HasForeignKey("ListingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Listing");
                 });
 
             modelBuilder.Entity("Marketplace.Domain.Entities.Message", b =>
@@ -228,6 +471,68 @@ namespace Marketplace.Infrastructure.Migrations
                     b.Navigation("Sender");
                 });
 
+            modelBuilder.Entity("Marketplace.Domain.Entities.Order", b =>
+                {
+                    b.HasOne("Marketplace.Domain.Entities.User", "Buyer")
+                        .WithMany("Orders")
+                        .HasForeignKey("BuyerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Buyer");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.OrderItem", b =>
+                {
+                    b.HasOne("Marketplace.Domain.Entities.Listing", "Listing")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("ListingId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Marketplace.Domain.Entities.Order", "Order")
+                        .WithMany("Items")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Listing");
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.Review", b =>
+                {
+                    b.HasOne("Marketplace.Domain.Entities.User", "Buyer")
+                        .WithMany("Reviews")
+                        .HasForeignKey("BuyerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Marketplace.Domain.Entities.Listing", "Listing")
+                        .WithMany("Reviews")
+                        .HasForeignKey("ListingId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Marketplace.Domain.Entities.Order", "Order")
+                        .WithMany("Reviews")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Buyer");
+
+                    b.Navigation("Listing");
+
+                    b.Navigation("Order");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.Brand", b =>
+                {
+                    b.Navigation("Listings");
+                });
+
             modelBuilder.Entity("Marketplace.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Listings");
@@ -236,6 +541,26 @@ namespace Marketplace.Infrastructure.Migrations
             modelBuilder.Entity("Marketplace.Domain.Entities.Listing", b =>
                 {
                     b.Navigation("Favorites");
+
+                    b.Navigation("Images");
+
+                    b.Navigation("OrderItems");
+
+                    b.Navigation("Reviews");
+
+                    b.Navigation("Specifications");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.Order", b =>
+                {
+                    b.Navigation("Items");
+
+                    b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("Marketplace.Domain.Entities.ProductCondition", b =>
+                {
+                    b.Navigation("Listings");
                 });
 
             modelBuilder.Entity("Marketplace.Domain.Entities.User", b =>
@@ -244,7 +569,11 @@ namespace Marketplace.Infrastructure.Migrations
 
                     b.Navigation("Listings");
 
+                    b.Navigation("Orders");
+
                     b.Navigation("ReceivedMessages");
+
+                    b.Navigation("Reviews");
 
                     b.Navigation("SentMessages");
                 });

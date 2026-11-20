@@ -22,4 +22,8 @@ public class User
     public List<Message> SentMessages { get; set; } = new();
 
     public List<Message> ReceivedMessages { get; set; } = new();
+
+    public List<Order> Orders { get; set; } = new();
+
+    public List<Review> Reviews { get; set; } = new();
 }

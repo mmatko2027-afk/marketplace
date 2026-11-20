@@ -1,14 +1,19 @@
-﻿using Marketplace.Domain.Entities;
+﻿using Marketplace.Application.DTOs;
+using Marketplace.Domain.Entities;
 
 namespace Marketplace.Application.Repositories;
 
 public interface IListingRepository
 {
-    Task<List<Listing>> GetAllAsync(
+    Task<PagedResultDto<Listing>> GetAllAsync(
         int page,
         int pageSize,
         string? search,
         int? categoryId,
+        int? brandId,
+        int? productConditionId,
+        decimal? minPrice,
+        decimal? maxPrice,
         string? sort);
 
     Task<Listing?> GetByIdAsync(int id);
@@ -20,4 +25,8 @@ public interface IListingRepository
     Task<bool> DeleteAsync(int id);
 
     Task<bool> CategoryExistsAsync(int categoryId);
+
+    Task<bool> BrandExistsAsync(int brandId);
+
+    Task<bool> ProductConditionExistsAsync(int productConditionId);
 }
