@@ -44,6 +44,9 @@ builder.Services.AddHttpClient<INovaPoshtaService, NovaPoshtaService>((servicePr
 builder.Services.AddMemoryCache();
 builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
 builder.Services.AddHostedService<QueuedHostedService>();
+builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
+builder.Services.AddSingleton<IJobStatusStore, InMemoryJobStatusStore>();
+builder.Services.AddHostedService<QueuedHostedService>();
 builder.Services.AddHttpClient<IExternalCatalogClient, ExternalCatalogClient>(client =>
 {
     var baseAddress = builder.Configuration["ExternalServices:CatalogBaseUrl"];

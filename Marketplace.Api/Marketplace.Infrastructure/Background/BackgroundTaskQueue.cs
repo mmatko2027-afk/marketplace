@@ -2,6 +2,7 @@ using System.Threading.Channels;
 using Marketplace.Application.Background;
 
 namespace Marketplace.Infrastructure.Background;
+
 /// <summary>Реалізація черги завдань для асинхронного виконання у фоновому режимі.</summary>
 public sealed class BackgroundTaskQueue : IBackgroundTaskQueue
 {
@@ -10,11 +11,19 @@ public sealed class BackgroundTaskQueue : IBackgroundTaskQueue
     public BackgroundTaskQueue(int capacity = 100)
     {
         _queue = Channel.CreateBounded<Func<CancellationToken, Task>>(
-            new BoundedChannelOptions(capacity) { FullMode = BoundedChannelFullMode.Wait });
+            new BoundedChannelOptions(capacity)
+            {
+                FullMode = BoundedChannelFullMode.Wait,
+                SingleReader = true,
+                SingleWriter = false
+            });
     }
 
-    public ValueTask QueueAsync(Func<CancellationToken, Task> workItem, CancellationToken cancellationToken = default) =>
-        _queue.Writer.WriteAsync(workItem, cancellationToken);
+    public ValueTask QueueAsync(Func<CancellationToken, Task> workItem, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(workItem);
+        return _queue.Writer.WriteAsync(workItem, cancellationToken);
+    }
 
     public ValueTask<Func<CancellationToken, Task>> DequeueAsync(CancellationToken cancellationToken) =>
         _queue.Reader.ReadAsync(cancellationToken);

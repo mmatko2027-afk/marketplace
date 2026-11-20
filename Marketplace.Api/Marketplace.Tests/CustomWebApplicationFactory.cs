@@ -1,12 +1,13 @@
-using System.Data.Common;
+using Marketplace.Application.Delivery;
+using Marketplace.Infrastructure.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Marketplace.Infrastructure.Data;
-
+using System.Data.Common;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 namespace Marketplace.Tests;
 
 public sealed class CustomWebApplicationFactory : WebApplicationFactory<Program>
@@ -41,7 +42,8 @@ public sealed class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
             var descriptor = services.SingleOrDefault(
                 service => service.ServiceType == typeof(DbContextOptions<MarketplaceDbContext>));
-
+            services.RemoveAll<INovaPoshtaService>();
+            services.AddSingleton<INovaPoshtaService>(new TestNovaPoshtaService());
             if (descriptor is not null)
                 services.Remove(descriptor);
 
@@ -54,5 +56,31 @@ public sealed class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         base.Dispose(disposing);
         _connection.Dispose();
+    }
+}
+private sealed class TestNovaPoshtaService : INovaPoshtaService
+{
+    public Task<IReadOnlyList<NovaPoshtaCity>> SearchCitiesAsync(
+        string query,
+        int limit = 10,
+        int page = 1,
+        CancellationToken cancellationToken = default)
+    {
+        IReadOnlyList<NovaPoshtaCity> result =
+        [
+            new NovaPoshtaCity("city-ref-1", "delivery-city-1", $"м. {query}")
+        ];
+        return Task.FromResult(result);
+    }
+
+    public Task<IReadOnlyList<NovaPoshtaPoint>> SearchWarehousesAsync(
+        NovaPoshtaSearchRequest request,
+        CancellationToken cancellationToken = default)
+    {
+        IReadOnlyList<NovaPoshtaPoint> result =
+        [
+            new NovaPoshtaPoint("wh-ref-1", $"Відділення №1 ({request.Query})", "вул. Тестова, 1")
+        ];
+        return Task.FromResult(result);
     }
 }

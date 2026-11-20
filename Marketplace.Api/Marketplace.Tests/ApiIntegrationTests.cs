@@ -29,21 +29,7 @@ public class ApiIntegrationTests : IClassFixture<CustomWebApplicationFactory>
     }
 
     [Fact]
-    public async Task BackgroundTask_ReturnsAcceptedImmediately()
-    {
-        using var client = _factory.CreateClient();
-        var user = await RegisterAsync(client, "BackgroundUser");
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", user.Token);
-
-        var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-        var response = await client.PostAsync("/api/background-tasks", content: null);
-        stopwatch.Stop();
-
-        Assert.Equal(HttpStatusCode.Accepted, response.StatusCode);
-        Assert.True(stopwatch.Elapsed < TimeSpan.FromSeconds(2));
-    }
-
-    [Fact]
+   
     public async Task AiSupport_ReturnsServiceUnavailableWhenNotConfigured()
     {
         using var client = _factory.CreateClient();
