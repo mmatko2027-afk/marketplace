@@ -57,30 +57,31 @@ public sealed class CustomWebApplicationFactory : WebApplicationFactory<Program>
         base.Dispose(disposing);
         _connection.Dispose();
     }
-}
-private sealed class TestNovaPoshtaService : INovaPoshtaService
-{
-    public Task<IReadOnlyList<NovaPoshtaCity>> SearchCitiesAsync(
-        string query,
-        int limit = 10,
-        int page = 1,
-        CancellationToken cancellationToken = default)
-    {
-        IReadOnlyList<NovaPoshtaCity> result =
-        [
-            new NovaPoshtaCity("city-ref-1", "delivery-city-1", $"м. {query}")
-        ];
-        return Task.FromResult(result);
-    }
 
-    public Task<IReadOnlyList<NovaPoshtaPoint>> SearchWarehousesAsync(
-        NovaPoshtaSearchRequest request,
-        CancellationToken cancellationToken = default)
+    private sealed class TestNovaPoshtaService : INovaPoshtaService
     {
-        IReadOnlyList<NovaPoshtaPoint> result =
-        [
-            new NovaPoshtaPoint("wh-ref-1", $"Відділення №1 ({request.Query})", "вул. Тестова, 1")
-        ];
-        return Task.FromResult(result);
+        public Task<IReadOnlyList<NovaPoshtaCity>> SearchCitiesAsync(
+            string query,
+            int limit = 10,
+            int page = 1,
+            CancellationToken cancellationToken = default)
+        {
+            IReadOnlyList<NovaPoshtaCity> result =
+            [
+                new NovaPoshtaCity("city-ref-1", "delivery-city-1", $"м. {query}")
+            ];
+            return Task.FromResult(result);
+        }
+
+        public Task<IReadOnlyList<NovaPoshtaPoint>> SearchWarehousesAsync(
+            NovaPoshtaSearchRequest request,
+            CancellationToken cancellationToken = default)
+        {
+            IReadOnlyList<NovaPoshtaPoint> result =
+            [
+                new NovaPoshtaPoint("wh-ref-1", $"Відділення №1 ({request.Query})", "вул. Тестова, 1")
+            ];
+            return Task.FromResult(result);
+        }
     }
 }

@@ -6,7 +6,7 @@ using Marketplace.Application.DTOs;
 using Marketplace.Domain.Entities;
 using Marketplace.Infrastructure.Data;
 using Microsoft.Extensions.DependencyInjection;
-
+using Marketplace.Application.Background;
 namespace Marketplace.Tests;
 
 public class ApiIntegrationTests : IClassFixture<CustomWebApplicationFactory>
@@ -29,16 +29,78 @@ public class ApiIntegrationTests : IClassFixture<CustomWebApplicationFactory>
     }
 
     [Fact]
-   
-    public async Task AiSupport_ReturnsServiceUnavailableWhenNotConfigured()
+    public async Task AiSupport_QueuesJobAndTransitionsToFailedWhenNotConfigured()
     {
         using var client = _factory.CreateClient();
         var user = await RegisterAsync(client, "AiUser");
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", user.Token);
 
+        var stopwatch = System.Diagnostics.Stopwatch.StartNew();
         var response = await client.PostAsJsonAsync("/api/support/ai/ask", new { Question = "Як працює доставка?" });
+        stopwatch.Stop();
 
-        Assert.Equal(HttpStatusCode.ServiceUnavailable, response.StatusCode);
+        Assert.Equal(HttpStatusCode.Accepted, response.StatusCode);
+        Assert.True(stopwatch.Elapsed < TimeSpan.FromSeconds(2));
+
+        var queued = await response.Content.ReadFromJsonAsync<QueuedJobResponse>();
+        Assert.NotNull(queued);
+
+        JobStatusDto? jobStatus = null;
+        for (var attempt = 0; attempt < 20; attempt++)
+        {
+            var statusResponse = await client.GetAsync($"/api/jobs/{queued!.JobId}");
+            Assert.Equal(HttpStatusCode.OK, statusResponse.StatusCode);
+            jobStatus = await statusResponse.Content.ReadFromJsonAsync<JobStatusDto>();
+            if (jobStatus?.Status is "failed" or "done")
+                break;
+
+            await Task.Delay(50);
+        }
+
+        Assert.NotNull(jobStatus);
+        Assert.Equal("failed", jobStatus!.Status);
+        Assert.False(string.IsNullOrWhiteSpace(jobStatus.Error));
+    }
+
+    [Fact]
+    public async Task NovaPoshta_QueuesCitiesJobAndCompletesInBackground()
+    {
+        using var client = _factory.CreateClient();
+        var user = await RegisterAsync(client, "NovaPoshtaUser");
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", user.Token);
+
+        var response = await client.GetAsync("/api/delivery/nova-poshta/cities?query=Київ");
+        Assert.Equal(HttpStatusCode.Accepted, response.StatusCode);
+
+        var queued = await response.Content.ReadFromJsonAsync<QueuedJobResponse>();
+        Assert.NotNull(queued);
+
+        JobStatusDto? jobStatus = null;
+        for (var attempt = 0; attempt < 20; attempt++)
+        {
+            var statusResponse = await client.GetAsync($"/api/jobs/{queued!.JobId}");
+            Assert.Equal(HttpStatusCode.OK, statusResponse.StatusCode);
+            jobStatus = await statusResponse.Content.ReadFromJsonAsync<JobStatusDto>();
+            if (jobStatus?.Status == "done")
+                break;
+
+            await Task.Delay(50);
+        }
+
+        Assert.NotNull(jobStatus);
+        Assert.Equal("done", jobStatus!.Status);
+        Assert.NotNull(jobStatus.Result);
+    }
+
+    [Fact]
+    public async Task Jobs_ReturnsNotFoundForUnknownJobId()
+    {
+        using var client = _factory.CreateClient();
+        var user = await RegisterAsync(client, "JobsNotFoundUser");
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", user.Token);
+
+        var response = await client.GetAsync("/api/jobs/00000000-0000-0000-0000-000000000001");
+        Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 
     [Fact]
