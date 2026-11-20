@@ -1,4 +1,7 @@
 using System.Linq;
+using System.Text;
+using System.Reflection;
+
 using Marketplace.Application.Files;
 using Marketplace.Application.Background;
 using Marketplace.Application.Integrations;
@@ -6,58 +9,87 @@ using Marketplace.Application.AI;
 using Marketplace.Application.Delivery;
 using Marketplace.Application.Repositories;
 using Marketplace.Application.Services;
+
 using Marketplace.Infrastructure.Data;
 using Marketplace.Infrastructure.Repositories;
 using Marketplace.Infrastructure.Files;
-using Microsoft.EntityFrameworkCore;
-using Marketplace.Domain.Entities;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi;
-using System.Reflection;
 using Marketplace.Infrastructure.Background;
 using Marketplace.Infrastructure.Integrations;
 using Marketplace.Infrastructure.AI;
 using Marketplace.Infrastructure.Delivery;
+
+using Marketplace.Domain.Entities;
+using Marketplace.Api.Services;
+
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.OpenApi;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.Configure<AiOptions>(builder.Configuration.GetSection("Ai"));
-builder.Services.Configure<StoreRulesOptions>(builder.Configuration.GetSection("StoreRules"));
-builder.Services.AddHttpClient<IAiSupportService, OpenAiCompatibleSupportService>((serviceProvider, client) =>
-{
-    var settings = serviceProvider.GetRequiredService<Microsoft.Extensions.Options.IOptions<AiOptions>>().Value;
-    if (Uri.TryCreate(settings.BaseUrl, UriKind.Absolute, out var uri))
-        client.BaseAddress = uri;
-    client.Timeout = TimeSpan.FromSeconds(Math.Max(1, settings.TimeoutSeconds));
-});
-builder.Services.Configure<NovaPoshtaOptions>(builder.Configuration.GetSection("NovaPoshta"));
-builder.Services.AddHttpClient<INovaPoshtaService, NovaPoshtaService>((serviceProvider, client) =>
-{
-    var settings = serviceProvider.GetRequiredService<Microsoft.Extensions.Options.IOptions<NovaPoshtaOptions>>().Value;
-    if (Uri.TryCreate(settings.BaseUrl, UriKind.Absolute, out var uri))
-        client.BaseAddress = uri;
-    client.Timeout = TimeSpan.FromSeconds(Math.Max(1, settings.TimeoutSeconds));
-});
-builder.Services.AddMemoryCache();
-builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
-builder.Services.AddHostedService<QueuedHostedService>();
-builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
-builder.Services.AddSingleton<IJobStatusStore, InMemoryJobStatusStore>();
-builder.Services.AddHostedService<QueuedHostedService>();
-builder.Services.AddHttpClient<IExternalCatalogClient, ExternalCatalogClient>(client =>
-{
-    var baseAddress = builder.Configuration["ExternalServices:CatalogBaseUrl"];
-    if (Uri.TryCreate(baseAddress, UriKind.Absolute, out var uri))
-        client.BaseAddress = uri;
-    client.Timeout = TimeSpan.FromSeconds(
-        builder.Configuration.GetValue("ExternalServices:TimeoutSeconds", 5));
-});
 
+builder.Services.Configure<AiOptions>(
+    builder.Configuration.GetSection("Ai"));
+
+builder.Services.Configure<StoreRulesOptions>(
+    builder.Configuration.GetSection("StoreRules"));
+
+builder.Services.AddHttpClient<IAiSupportService, OpenAiCompatibleSupportService>(
+    (serviceProvider, client) =>
+    {
+        var settings = serviceProvider
+            .GetRequiredService<Microsoft.Extensions.Options.IOptions<AiOptions>>()
+            .Value;
+
+        if (Uri.TryCreate(settings.BaseUrl, UriKind.Absolute, out var uri))
+            client.BaseAddress = uri;
+
+        client.Timeout = TimeSpan.FromSeconds(
+            Math.Max(1, settings.TimeoutSeconds));
+    });
+
+builder.Services.Configure<NovaPoshtaOptions>(
+    builder.Configuration.GetSection("NovaPoshta"));
+
+builder.Services.AddHttpClient<INovaPoshtaService, NovaPoshtaService>(
+    (serviceProvider, client) =>
+    {
+        var settings = serviceProvider
+            .GetRequiredService<Microsoft.Extensions.Options.IOptions<NovaPoshtaOptions>>()
+            .Value;
+
+        if (Uri.TryCreate(settings.BaseUrl, UriKind.Absolute, out var uri))
+            client.BaseAddress = uri;
+
+        client.Timeout = TimeSpan.FromSeconds(
+            Math.Max(1, settings.TimeoutSeconds));
+    });
+
+builder.Services.AddMemoryCache();
+
+builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
+builder.Services.AddHostedService<QueuedHostedService>();
+builder.Services.AddSingleton<IJobStatusStore, InMemoryJobStatusStore>();
+
+builder.Services.AddHttpClient<IExternalCatalogClient, ExternalCatalogClient>(
+    client =>
+    {
+        var baseAddress =
+            builder.Configuration["ExternalServices:CatalogBaseUrl"];
+
+        if (Uri.TryCreate(baseAddress, UriKind.Absolute, out var uri))
+            client.BaseAddress = uri;
+
+        client.Timeout = TimeSpan.FromSeconds(
+            builder.Configuration.GetValue(
+                "ExternalServices:TimeoutSeconds", 5));
+    });
 
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -87,14 +119,20 @@ builder.Services.AddSwaggerGen(options =>
         AppContext.BaseDirectory,
         $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 });
+
 builder.Services.AddProblemDetails();
+
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<UserService>();
+
 builder.Services.AddScoped<IFavoritesRepository, FavoritesRepository>();
 builder.Services.AddScoped<FavoriteService>();
+
 builder.Services.AddScoped<IMessagesRepository, MessagesRepository>();
 builder.Services.AddScoped<MessageService>();
-builder.Services.AddScoped<Marketplace.Api.Services.AuthService>();
+
+builder.Services.AddScoped<AuthService>();
+
 var jwtKey = builder.Configuration["Jwt:SecretKey"];
 
 if (string.IsNullOrWhiteSpace(jwtKey))
@@ -120,8 +158,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = jwtAudience,
 
             IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(jwtKey)
-            ),
+                Encoding.UTF8.GetBytes(jwtKey)),
 
             ClockSkew = TimeSpan.Zero
         };
@@ -129,29 +166,33 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' не налаштовано.");
+var connectionString = builder.Configuration
+    .GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException(
+        "Connection string 'DefaultConnection' не налаштовано.");
 
 builder.Services.AddDbContext<MarketplaceDbContext>(options =>
     options.UseSqlite(connectionString));
-
 
 builder.Services.AddScoped<IListingRepository, ListingRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IBrandRepository, BrandRepository>();
 builder.Services.AddScoped<IProductConditionRepository, ProductConditionRepository>();
 
-
 builder.Services.AddScoped<ListingService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<BrandService>();
 builder.Services.AddScoped<ProductConditionService>();
+
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<OrderService>();
+
 builder.Services.AddScoped<IListingImageRepository, ListingImageRepository>();
 builder.Services.AddScoped<ListingImageService>();
+
 builder.Services.AddSingleton<IFileStorage>(
     new LocalFileStorage(builder.Environment.ContentRootPath));
+
 builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<ReviewService>();
 
@@ -192,8 +233,7 @@ using (var scope = app.Services.CreateScope())
 
         admin.PasswordHash = passwordHasher.HashPassword(
             admin,
-            adminPassword
-        );
+            adminPassword);
 
         db.Users.Add(admin);
         db.SaveChanges();
@@ -205,10 +245,9 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-
-
 app.UseExceptionHandler();
 app.UseStatusCodePages();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
