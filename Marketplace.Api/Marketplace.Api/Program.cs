@@ -132,7 +132,7 @@ builder.Services.AddScoped<IMessagesRepository, MessagesRepository>();
 builder.Services.AddScoped<MessageService>();
 
 builder.Services.AddScoped<AuthService>();
-
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 var jwtKey = builder.Configuration["Jwt:SecretKey"];
 
 if (string.IsNullOrWhiteSpace(jwtKey))

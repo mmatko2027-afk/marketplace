@@ -26,4 +26,6 @@ public class User
     public List<Order> Orders { get; set; } = new();
 
     public List<Review> Reviews { get; set; } = new();
+
+    public List<RefreshToken> RefreshTokens { get; set; } = new();
 }

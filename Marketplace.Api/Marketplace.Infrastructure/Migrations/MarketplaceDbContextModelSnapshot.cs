@@ -300,6 +300,38 @@ namespace Marketplace.Infrastructure.Migrations
                     b.ToTable("ProductConditions");
                 });
 
+            modelBuilder.Entity("Marketplace.Domain.Entities.RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Token")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("Marketplace.Domain.Entities.Review", b =>
                 {
                     b.Property<int>("Id")
@@ -501,6 +533,17 @@ namespace Marketplace.Infrastructure.Migrations
                     b.Navigation("Order");
                 });
 
+            modelBuilder.Entity("Marketplace.Domain.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("Marketplace.Domain.Entities.User", "User")
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Marketplace.Domain.Entities.Review", b =>
                 {
                     b.HasOne("Marketplace.Domain.Entities.User", "Buyer")
@@ -572,6 +615,8 @@ namespace Marketplace.Infrastructure.Migrations
                     b.Navigation("Orders");
 
                     b.Navigation("ReceivedMessages");
+
+                    b.Navigation("RefreshTokens");
 
                     b.Navigation("Reviews");
 

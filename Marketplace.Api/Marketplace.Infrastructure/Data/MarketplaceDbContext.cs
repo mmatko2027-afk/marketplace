@@ -23,6 +23,7 @@ public class MarketplaceDbContext : DbContext
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
     public DbSet<Review> Reviews => Set<Review>();
 
+    public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -170,5 +171,15 @@ public class MarketplaceDbContext : DbContext
         modelBuilder.Entity<Review>()
             .Property(r => r.Rating)
             .IsRequired();
+
+        modelBuilder.Entity<RefreshToken>()
+            .HasIndex(rt => rt.Token)
+            .IsUnique();
+
+        modelBuilder.Entity<RefreshToken>()
+            .HasOne(rt => rt.User)
+            .WithMany(u => u.RefreshTokens)
+            .HasForeignKey(rt => rt.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

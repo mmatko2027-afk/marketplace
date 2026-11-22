@@ -2,7 +2,7 @@
 using Marketplace.Api.Services;
 using Marketplace.Application.DTOs.Auth;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Security.Claims;
 namespace Marketplace.Api.Controllers;
 
 [ApiController]
@@ -43,5 +43,38 @@ public class AuthController : ControllerBase
                 detail: "Неправильний Email або пароль.");
 
         return Ok(result);
+    }
+
+    /// <summary>Оновлює access-токен за допомогою refresh-токена.</summary>
+    [HttpPost("refresh")]
+    public async Task<IActionResult> Refresh(RefreshTokenRequest request)
+    {
+        var result = await _authService.RefreshAsync(request.RefreshToken);
+        if (result == null)
+            return Problem(
+                statusCode: StatusCodes.Status401Unauthorized,
+                title: "Оновлення токена не виконано",
+                detail: "Refresh-токен недійсний, прострочений або відкликаний.");
+
+        return Ok(result);
+    }
+
+    /// <summary>Виконує вихід із системи та відкликає refresh-токен.</summary>
+    [HttpPost("logout")]
+    public async Task<IActionResult> Logout(RefreshTokenRequest request)
+    {
+        int? currentUserId = null;
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (int.TryParse(userIdClaim, out var parsedId))
+            currentUserId = parsedId;
+
+        var revoked = await _authService.LogoutAsync(request.RefreshToken, currentUserId);
+        if (!revoked)
+            return Problem(
+                statusCode: StatusCodes.Status400BadRequest,
+                title: "Вихід не виконано",
+                detail: "Токен не знайдено або він уже відкликаний.");
+
+        return NoContent();
     }
 }
